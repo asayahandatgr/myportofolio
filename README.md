@@ -1,25 +1,49 @@
-💼 My Portfolio Website
-Ini adalah website portofolio pribadi saya yang dibangun menggunakan React.js, dengan bantuan Tailwind CSS dan ReactBits sebagai library UI. Tujuannya? Menampilkan karya, skill, dan identitas saya sebagai web developer secara clean, responsif, dan modern.
+# 💼 My Portfolio Website
 
-🚀 Tech Stack
-React.js – Library utama untuk membangun antarmuka pengguna
+Selamat datang di website portofolio pribadi saya!  
+Dibangun menggunakan **React.js**, **Tailwind CSS**, dan **ReactBits** sebagai library UI, situs ini dirancang untuk menampilkan karya, keterampilan, dan identitas saya sebagai seorang web developer secara **clean**, **modern**, dan **responsif**.
 
-Tailwind CSS – Utility-first framework buat styling cepat dan konsisten
+---
 
-ReactBits – Koleksi komponen siap pakai untuk animasi, layout, dan elemen interaktif
+## 🚀 Tech Stack
 
-🎨 Fitur Utama
-💡 Desain bersih dan responsif yang cocok di semua device
+- **React.js** – Library utama untuk membangun antarmuka pengguna  
+- **Tailwind CSS** – Utility-first framework untuk styling cepat dan konsisten  
+- **ReactBits** – Komponen siap pakai untuk animasi, layout, dan elemen interaktif  
+- **Vite** – Build tool super cepat dengan dukungan HMR  
+- **ESLint** – Linter untuk menjaga konsistensi dan kualitas kode  
 
-⚡ Pengembangan super cepat dengan Vite + HMR (Hot Module Replacement)
+---
 
-🧩 Komponen UI modular dari ReactBits (kayak text animation, particles, dsb)
+## 🎨 Fitur Utama
 
-📐 Struktur kode yang rapi dan mudah dikembangkan
+- 💡 Desain responsif dan mobile-friendly  
+- ⚡ Hot Module Replacement (HMR) dengan Vite  
+- 🧩 Komponen interaktif dari ReactBits (Text Animation, Particles, dsb)  
+- 📐 Struktur kode yang bersih dan mudah dikembangkan  
+- 🛠️ Siap dikembangkan lebih lanjut dengan konfigurasi yang minimal namun powerful  
 
-🛠️ Tools & Konfigurasi
-Menggunakan plugin @vitejs/plugin-react untuk integrasi React dengan Vite
+---
 
-Disiapkan dengan konfigurasi dasar ESLint agar kode tetap konsisten
+## 🛠️ Tools & Konfigurasi
 
-Open source & customizable – bisa kamu forking dan modif sesuka hati
+- Menggunakan plugin [`@vitejs/plugin-react`](https://github.com/vitejs/vite-plugin-react)  
+- ESLint dengan aturan dasar untuk menjaga kualitas kode  
+- Open Source & Customizable – Feel free to fork & improve!  
+
+---
+
+## 📦 Instalasi
+
+```bash
+# Clone repo-nya
+git clone https://github.com/username/nama-repo-kamu.git
+
+# Masuk ke direktori
+cd nama-repo-kamu
+
+# Install dependency
+npm install
+
+# Jalankan di local
+npm run dev
