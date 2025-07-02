@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* html, body {
+  margin: 0;
+  padding: 0;
+  background: #181824;
+} */
+
+body {
+  background: #000 !important;
+}
+
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease-in-out infinite;
+}
+
+/* Aurora Animation */
+.aurora-bg {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.aurora-bg::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle at 60% 40%, rgba(135, 206, 250, 0.18) 0%, transparent 70%),
+              radial-gradient(circle at 30% 70%, rgba(135, 206, 250, 0.10) 0%, transparent 80%);
+  opacity: 0.7;
+  animation: aurora-move 8s linear infinite alternate;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.aurora-bg::after {
+  background: radial-gradient(circle at 70% 60%, #818cf888 0%, transparent 70%),
+              radial-gradient(circle at 30% 70%, #fbbf2488 0%, transparent 70%);
+  opacity: 0.5;
+  animation-delay: 4s;
+}
+
+@keyframes aurora-move {
+  0% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.1) translate(40px, 40px) rotate(8deg);
+  }
+}
+
