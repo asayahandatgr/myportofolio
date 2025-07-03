@@ -5,7 +5,7 @@ import AnimatedContent from "../../ui/Animations/AnimatedContent/AnimatedContent
 
 const HeroSection = () => {
   return (
-    <section className="aurora-bg bg-black w-full min-h-screen flex flex-col justify-center px-4 py-20 pt-32">
+    <section className="bg-black w-full min-h-screen flex flex-col justify-center px-4 py-20 pt-32">
       <div className="max-w-4xl w-full mx-auto flex flex-col gap-8">
         <AnimatedContent
           distance={150}
@@ -29,7 +29,7 @@ const HeroSection = () => {
               Ready for
               <RotatingText
                 texts={['Web Developer', 'Web Design', 'UI UX Design']}
-                mainClassName="w-[500px] px-2 sm:px-2 md:px-3 font-extrabold overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+                mainClassName="w-[500px] px-2 sm:px-2 md:px-3 font-extrabold overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
@@ -40,9 +40,8 @@ const HeroSection = () => {
                 rotationInterval={2000}
               />
             </h2>
-            <p className="text-lg md:text-xl text-white max-w-2xl mb-10">
-              Web Developer with experience of Digital Concept Arts, Frontend Web Designs. I love fun Web UI, collaboration and making products.<br/>
-              I value simple content structure, clean design patterns, and thoughtful interactions.
+            <p className="font-mono text-lg md:text-xl text-white max-w-2xl mb-10">
+              Web Developer with experience of Digital Concept Arts, Frontend Web Designs. I love fun Web UI, collaboration and making products. I value simple content structure, clean design patterns, and thoughtful interactions.
             </p>
             <div className="flex gap-4">
               <button className="animate-gradient-x px-8 py-3 rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 text-white font-semibold shadow-lg hover:scale-105 transition text-lg md:text-xl">

@@ -1,0 +1,63 @@
+import React from 'react';
+import DecryptedText from '../../ui/TextAnimations/DecryptedText/DecryptedText';
+import ProfileCard from '../../ui/Components/ProfileCard/ProfileCard';
+import AnimatedContent from '../../ui/Animations/AnimatedContent/AnimatedContent';
+
+const aboutText = `Hi!🙌 My name is Tegar Asayahanda Firdaus. I'm an Informatics Engineering student who wears multiple hats — web developer, web designer, and UI/UX enthusiast. I love creating digital experiences that are not only functional, but also visually engaging and user-friendly.
+As a tech enthusiast, I'm always evolving — learning new skills, exploring emerging tools, and staying curious about the ever-changing world of technology. Whether I'm building something from scratch or refining a user journey, I bring a mix of logic, creativity, and a constant drive to grow.`;
+
+const AboutMe = () => {
+  return (
+    <section className="w-full min-h-[40vh] flex flex-col md:flex-row items-center justify-center gap-3 px-1 py-6" id="about" style={{background: 'none'}}>
+      <AnimatedContent 
+      distance={300}
+      direction="vertical"
+      reverse={false}
+      duration={1.5}
+      ease="expo.out"
+      initialOpacity={0.2}
+      animateOpacity
+      scale={1}
+      threshold={0.2}
+      delay={0}
+      >
+        <div className="flex w-full flex-col md:flex-row items-center justify-center md:gap-14">
+          <div className="md:basis-2/3 flex flex-col justify-center items-center md:items-start md:max-w-lg w-full min-w-[220px]">
+            <div className="flex items-center w-full mb-6">
+              <span className="font-mono bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text text-2xl md:text-3xl text-[#bfaaff]">&lt;/ AboutMe&gt;</span>
+              <span className="flex-1 ml-4 h-px bg-[#bfaaff] opacity-60"></span>
+            </div>
+            <div className="text-justify w-full">
+              <DecryptedText
+                text={aboutText}
+                className="text-lg md:text-xl text-white font-mono"
+                animateOn="view"
+              />
+            </div>
+            <div className="mt-3">
+              <button className="bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x text-white rounded-full p-2 shadow-lg hover:scale-105 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5v-9m0 0L8.25 7.5M12 7.5l3.75 3.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div className="md:basis-1/3 flex justify-center items-center md:max-w-md min-w-[220px] w-full mt-8 md:mt-0">
+            <div style={{transform: 'scale(0.7)', transformOrigin: 'center'}}>
+              <ProfileCard
+                avatarUrl="./tegaer.png"
+                name="Tegar Asayahanda F."
+                title="Software Engineer"
+                handle="tegarasayahanda"
+                status="Available"
+                contactText="Contact"
+              />
+            </div>
+          </div>
+        </div>
+      </AnimatedContent>
+    </section>
+  );
+};
+
+export default AboutMe;

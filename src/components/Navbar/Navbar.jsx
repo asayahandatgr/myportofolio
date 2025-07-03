@@ -2,7 +2,7 @@ import React from "react";
 
 const menuItems = [
   { label: "Home", href: "#" },
-  { label: "AboutMe", href: "#" },
+  { label: "AboutMe", href: "#about" },
   { label: "Skills", href: "#" },
   { label: "Projects", href: "#" },
 ];

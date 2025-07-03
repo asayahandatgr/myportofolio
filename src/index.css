@@ -6,6 +6,10 @@
   background: #181824;
 } */
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #000 !important;
 }
