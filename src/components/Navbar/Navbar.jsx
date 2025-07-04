@@ -2,8 +2,8 @@ import React from "react";
 
 const menuItems = [
   { label: "Home", href: "#" },
-  { label: "AboutMe", href: "#about" },
-  { label: "Skills", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#" },
 ];
 
@@ -22,7 +22,7 @@ const Navbar = () => {
               href={item.href}
               className="text-white/90 font-mono text-lg px-3 py-1 hover:text-white transition"
             >
-              {'</'}{item.label}{'>'}
+              {item.label}
             </a>
           </li>
         ))}

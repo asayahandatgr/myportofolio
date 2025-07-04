@@ -24,10 +24,10 @@ const AboutMe = () => {
         <div className="flex w-full flex-col md:flex-row items-center justify-center md:gap-14">
           <div className="md:basis-2/3 flex flex-col justify-center items-center md:items-start md:max-w-lg w-full min-w-[220px]">
             <div className="flex items-center w-full mb-6">
-              <span className="font-mono bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text text-2xl md:text-3xl text-[#bfaaff]">&lt;/ AboutMe&gt;</span>
+              <span className="font-mono bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text text-2xl md:text-3xl text-[#bfaaff]">About me</span>
               <span className="flex-1 ml-4 h-px bg-[#bfaaff] opacity-60"></span>
             </div>
-            <div className="text-justify w-full">
+            <div className="text-lg md:text-xl text-white font-mono text-left md:text-justify">
               <DecryptedText
                 text={aboutText}
                 className="text-lg md:text-xl text-white font-mono"
