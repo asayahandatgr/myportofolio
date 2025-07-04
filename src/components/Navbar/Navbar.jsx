@@ -4,7 +4,7 @@ const menuItems = [
   { label: "Home", href: "#" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#" },
+  { label: "Projects", href: "#project" },
 ];
 
 const Navbar = () => {

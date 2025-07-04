@@ -2,6 +2,7 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import AboutMe from './components/AboutMe/AboutMe';
 import Skill from './components/Skill/SkillsSection'
+import RecentProjects from './components/Project/RecentProjects';
 import './index.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <Hero />
     <AboutMe />
     <Skill />
+    <RecentProjects />
     </>
   )
 }

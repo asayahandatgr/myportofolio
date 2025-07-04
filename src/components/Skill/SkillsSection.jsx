@@ -148,7 +148,7 @@ const SkillsSection = () => {
       {/* Center Box */}
       <div
         ref={centerRef}
-        className="z-10 px-12 py-6 rounded-2xl border border-gray-300 bg-gray-100 shadow-lg text-6xl font-extrabold text-gray-700 flex items-center justify-center"
+        className="z-10 px-12 py-6 rounded-2xl border border-gray-300 bg-[#18181b] shadow-lg text-6xl font-extrabold text-white flex items-center justify-center"
         style={{
           position: 'absolute',
           left: '50%',
@@ -157,13 +157,7 @@ const SkillsSection = () => {
           minWidth: 220,
         }}
       >
-        <span
-          style={{
-            background: 'linear-gradient(90deg,#333,#999)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
+        <span className="font-mono bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text text-5xl md:text-6xl text-[#bfaaff] font-extrabold">
           Skills
         </span>
       </div>
