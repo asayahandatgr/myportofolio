@@ -26,7 +26,6 @@ const SkillsSection = () => {
 
   const updateLines = () => {
     if (!sectionRef.current || !centerRef.current) return;
-
     const sectionRect = sectionRef.current.getBoundingClientRect();
     const centerRect = centerRef.current.getBoundingClientRect();
     const centerX = centerRect.left - sectionRect.left + centerRect.width / 2;
@@ -57,7 +56,6 @@ const SkillsSection = () => {
     };
 
     updateLines();
-
     window.addEventListener('scroll', onUpdate);
     window.addEventListener('resize', onUpdate);
     return () => {
@@ -71,18 +69,18 @@ const SkillsSection = () => {
     if (lines.length === 0) return;
     const timeout = setTimeout(() => {
       setActiveIndex((prev) => (prev + 1) % lines.length);
-    }, 1600); // Durasi antar garis
-
+    }, 1600);
     return () => clearTimeout(timeout);
   }, [activeIndex, lines]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center bg-black px-8 md:px-24"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black px-4 sm:px-6 md:px-24 py-20"
       id="skills"
     >
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      {/* SVG Lines (desktop only) */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block">
         <defs>
           <linearGradient id="gradLine" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#a78bfa" />
@@ -91,12 +89,8 @@ const SkillsSection = () => {
           <style>
             {`
               @keyframes drawLine {
-                from {
-                  stroke-dashoffset: 400;
-                }
-                to {
-                  stroke-dashoffset: 0;
-                }
+                from { stroke-dashoffset: 400; }
+                to { stroke-dashoffset: 0; }
               }
               .line-animate {
                 stroke-dasharray: 400;
@@ -123,14 +117,7 @@ const SkillsSection = () => {
 
           return (
             <g key={i}>
-              {/* Garis dasar putih */}
-              <path
-                d={path}
-                stroke="white"
-                strokeWidth={1.5}
-                fill="none"
-              />
-              {/* Garis animasi overlay */}
+              <path d={path} stroke="white" strokeWidth={1.5} fill="none" />
               {i === activeIndex && (
                 <path
                   d={path}
@@ -145,44 +132,45 @@ const SkillsSection = () => {
         })}
       </svg>
 
-      {/* Center Box */}
+      {/* Center Title */}
       <div
         ref={centerRef}
-        className="z-10 px-12 py-6 rounded-2xl border border-gray-300 bg-[#18181b] shadow-lg text-6xl font-extrabold text-white flex items-center justify-center"
+        className="z-10 px-10 py-4 rounded-2xl md:border md:border-gray-300 md:bg-[#18181b] bg-transparent md:shadow-lg text-4xl md:text-6xl font-extrabold text-white flex items-center justify-center mb-12 md:mb-0"
         style={{
-          position: 'absolute',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-          minWidth: 220,
+          position: 'relative',
+          minWidth: 200,
         }}
       >
-        <span className="font-mono bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text text-5xl md:text-6xl text-[#bfaaff] font-extrabold">
+        <span className="font-mono bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text text-[#bfaaff]">
           Skills
         </span>
       </div>
 
-      {/* Left Icons */}
-      <div className="absolute left-[12.5%] md:left-[16.5%] top-1/2 -translate-y-1/2 flex flex-col justify-between h-[480px] z-10">
+      {/* Desktop Layout */}
+      <div className="hidden md:flex absolute left-[12.5%] md:left-[16.5%] top-1/2 -translate-y-1/2 flex-col justify-between h-[480px] z-10">
         {skillsLeft.map((skill, i) => (
           <div key={skill.alt} ref={(el) => (leftRefs.current[i] = el)}>
-            <img
-              src={skill.src}
-              alt={skill.alt}
-              className="w-16 h-16 object-contain"
-            />
+            <img src={skill.src} alt={skill.alt} className="w-16 h-16 object-contain" />
           </div>
         ))}
       </div>
 
-      {/* Right Icons */}
-      <div className="absolute right-[12.5%] md:right-[16.5%] top-1/2 -translate-y-1/2 flex flex-col justify-between h-[480px] z-10">
+      <div className="hidden md:flex absolute right-[12.5%] md:right-[16.5%] top-1/2 -translate-y-1/2 flex-col justify-between h-[480px] z-10">
         {skillsRight.map((skill, i) => (
           <div key={skill.alt} ref={(el) => (rightRefs.current[i + skillsLeft.length] = el)}>
+            <img src={skill.src} alt={skill.alt} className="w-16 h-16 object-contain" />
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile Grid Layout */}
+      <div className="md:hidden grid grid-cols-2 gap-x-6 gap-y-8 mt-6 w-full px-4 sm:px-6 z-10">
+        {[...skillsLeft, ...skillsRight].map((skill) => (
+          <div key={skill.alt} className="flex justify-center">
             <img
               src={skill.src}
               alt={skill.alt}
-              className="w-16 h-16 object-contain"
+              className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
             />
           </div>
         ))}

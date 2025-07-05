@@ -30,7 +30,7 @@ const AboutMe = () => {
           <div className="md:basis-2/3 flex flex-col items-start text-left">
             {/* Section Title */}
             <div className="flex items-center w-full mb-4">
-              <span className="font-mono text-[#bfaaff] text-3xl sm:text-2xl md:text-5xl bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text">
+              <span className="font-mono text-[#bfaaff] text-4xl sm:text-2xl md:text-5xl bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text">
                 About me
               </span>
               <span className="hidden sm:flex flex-1 ml-4 h-px bg-[#bfaaff] opacity-50"></span>
