@@ -44,12 +44,20 @@ const AboutMe = () => {
 
             {/* Button */}
             <div className="mt-8">
-              <button className="bg-gradient-to-r from-purple-400 to-blue-400 text-white rounded-full p-3 shadow-lg hover:scale-105 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5v-9m0 0L8.25 7.5M12 7.5l3.75 3.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </button>
+              <a
+                href="https://docs.google.com/document/d/15stSR15oKdZWjgjX2w74MI6Q3Q0oQvJrOmrDHy9L2tY/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-purple-400 to-blue-400 text-white rounded-full p-3 shadow-lg hover:scale-105 transition inline-flex items-center"
+                title="Download CV"
+              >
+              {/* Icon open in new tab */}
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 3h7m0 0v7m0-7L10 14m-1 1H5a2 2 0 01-2-2v-5" />
+              </svg>
+              </a>
             </div>
+
           </div>
 
           {/* ProfileCard */}
