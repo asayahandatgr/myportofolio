@@ -35,12 +35,15 @@ const projects = [
 
 const RecentProjects = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center bg-black px-6 py-20" id="project">
-      <div className="w-full max-w-6xl mx-auto px-6">
+    <section className="w-full min-h-screen flex flex-col items-center justify-center bg-black px-5 sm:px-6 py-16 sm:py-24" id="project">
+      <div className="w-full max-w-6xl mx-auto">
         <div className="flex items-center w-full mb-10">
-          <span className="font-mono bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text text-4xl md:text-5xl text-[#bfaaff] font-extrabold">Recent Projects</span>
-          <span className="flex-1 ml-4 h-px bg-[#bfaaff] opacity-60"></span>
+          <span className="font-mono bg-gradient-to-r from-purple-400 to-blue-400 text-transparent animate-gradient-x bg-clip-text text-3xl md:text-5xl text-[#bfaaff] font-extrabold">
+            Recent Projects
+          </span>
+          <span className="hidden flex-1 ml-4 h-px bg-[#bfaaff] opacity-60"></span>
         </div>
+
         <div className="flex flex-col gap-16">
           {projects.map((project, idx) => (
             <AnimatedContent
@@ -57,26 +60,27 @@ const RecentProjects = () => {
               delay={0.1 * idx}
             >
               <div className="bg-[#18181b] rounded-2xl shadow-lg border border-[#23243a] flex flex-col md:flex-row items-center md:items-stretch overflow-hidden">
-                {/* Info statis */}
-                <div className="flex-1 flex flex-col justify-center p-12 gap-6 min-w-[320px]">
+                {/* Info Section */}
+                <div className="flex-1 flex flex-col justify-center p-6 md:p-12 gap-6 min-w-[320px]">
                   <div className="flex items-center gap-6 mb-4">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#bfaaff] text-[60px]">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#bfaaff] text-[40px] md:text-[60px]">
                       <FaGithub />
                     </a>
-                    <a href={project.external} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#bfaaff] text-[60px]">
+                    <a href={project.external} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#bfaaff] text-[40px] md:text-[60px]">
                       <FaExternalLinkAlt />
                     </a>
                   </div>
-                  <h3 className="text-5xl md:text-6xl font-extrabold text-white mb-4">{project.title}</h3>
-                  <p className="text-gray-300 font-semibold text-lg md:text-xl mb-2 max-w-2xl font-mono">{project.description}</p>
-                  <div className="flex flex-wrap gap-3 mt-2 text-lg font-bold text-[#bfaaff]">
+                  <h3 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-4">{project.title}</h3>
+                  <p className="text-gray-300 font-semibold text-base sm:text-lg md:text-xl mb-2 max-w-2xl font-mono">{project.description}</p>
+                  <div className="flex flex-wrap gap-3 mt-2 text-sm sm:text-base md:text-lg font-bold text-[#bfaaff]">
                     {project.tech.map((tech) => (
                       <span key={tech}>{tech}</span>
                     ))}
                   </div>
                 </div>
-                {/* CardSwap hanya untuk gambar */}
-                <div className="flex-1 flex items-center justify-center p-8 bg-[#18181b] min-w-[320px]" style={{ minHeight: 400 }}>
+
+                {/* Desktop CardSwap */}
+                <div className="hidden md:flex flex-1 items-center justify-center p-8 bg-[#18181b] min-w-[320px]" style={{ minHeight: 400 }}>
                   <div style={{ width: 400, height: 300, position: 'relative' }}>
                     <CardSwap
                       cardDistance={60}
@@ -98,9 +102,25 @@ const RecentProjects = () => {
                     </CardSwap>
                   </div>
                 </div>
+
+                {/* Mobile Carousel Swipe */}
+                <div className="block md:hidden mt-6 w-full px-4 overflow-x-auto">
+                  <div className="flex gap-4 w-full justify-center">
+                    {project.images.map((img, i) => (
+                      <img
+                        key={i}
+                        src={img}
+                        alt={`${project.title} ${i + 1}`}
+                        className="w-40 h-40 sm:w-44 sm:h-44 object-cover rounded-xl border border-[#23243a] shadow-lg flex-shrink-0"
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </AnimatedContent>
           ))}
+
+          {/* Load More Button */}
           <AnimatedContent
             distance={100}
             direction="vertical"
@@ -125,4 +145,4 @@ const RecentProjects = () => {
   );
 };
 
-export default RecentProjects; 
+export default RecentProjects;

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import AnimatedContent from '../../ui/Animations/AnimatedContent/AnimatedContent';
 
 const skillsLeft = [
   { src: '/htmllogo.png', alt: 'HTML5' },
@@ -135,7 +136,7 @@ const SkillsSection = () => {
       {/* Center Title */}
       <div
         ref={centerRef}
-        className="z-10 px-10 py-4 rounded-2xl md:border md:border-gray-300 md:bg-[#18181b] bg-transparent md:shadow-lg text-4xl md:text-6xl font-extrabold text-white flex items-center justify-center mb-12 md:mb-0"
+        className="z-10 px-10 py-4 rounded-2xl md:border md:border-gray-300 md:bg-[#18181b] bg-transparent md:shadow-lg text-3xl md:text-5xl font-extrabold text-white flex items-center justify-center mb-12 md:mb-0"
         style={{
           position: 'relative',
           minWidth: 200,
@@ -146,7 +147,7 @@ const SkillsSection = () => {
         </span>
       </div>
 
-      {/* Desktop Layout */}
+      {/* Desktop Icons (Left & Right) */}
       <div className="hidden md:flex absolute left-[12.5%] md:left-[16.5%] top-1/2 -translate-y-1/2 flex-col justify-between h-[480px] z-10">
         {skillsLeft.map((skill, i) => (
           <div key={skill.alt} ref={(el) => (leftRefs.current[i] = el)}>
@@ -163,16 +164,24 @@ const SkillsSection = () => {
         ))}
       </div>
 
-      {/* Mobile Grid Layout */}
+      {/* Mobile Grid Layout (Animated only in mobile) */}
       <div className="md:hidden grid grid-cols-2 gap-x-6 gap-y-8 mt-6 w-full px-4 sm:px-6 z-10">
-        {[...skillsLeft, ...skillsRight].map((skill) => (
-          <div key={skill.alt} className="flex justify-center">
-            <img
-              src={skill.src}
-              alt={skill.alt}
-              className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
-            />
-          </div>
+        {[...skillsLeft, ...skillsRight].map((skill, i) => (
+          <AnimatedContent
+            key={skill.alt}
+            direction="up"
+            distance={50}
+            duration={0.8}
+            delay={i * 0.1}
+          >
+            <div className="flex justify-center">
+              <img
+                src={skill.src}
+                alt={skill.alt}
+                className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
+              />
+            </div>
+          </AnimatedContent>
         ))}
       </div>
     </section>
