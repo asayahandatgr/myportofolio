@@ -1,9 +1,24 @@
-import React from "react";
-import { FaMusic } from "react-icons/fa";
+import React, { useRef, useState } from "react";
+import { FaVolumeMute, FaVolumeUp } from "react-icons/fa"; // <-- Icon ganti
 import RotatingText from "../../ui/TextAnimations/RotatingText/RotatingText";
 import AnimatedContent from "../../ui/Animations/AnimatedContent/AnimatedContent";
 
 const HeroSection = () => {
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleMusicToggle = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play().catch((err) => console.error("Failed to play audio:", err));
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <section className="bg-black w-full min-h-screen flex items-center px-4 pt-32 pb-20">
       <div className="max-w-5xl w-full mx-auto flex flex-col gap-8">
@@ -31,10 +46,10 @@ const HeroSection = () => {
             </h1>
 
             {/* Ready for + Rotating Text */}
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-8 flex flex-nowrap items-baseline gap-2 whitespace-nowrap overflow-hidden">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-8 flex flex-nowrap items-baseline gap-3 whitespace-nowrap overflow-hidden">
               Ready for
               <RotatingText
-                texts={["Web Developer", "Web Design", "UI UX Design"]}
+                texts={["Fullstack Engineer", "Frontend Engineer", "Backend Developer", "UI/UX Enthusiast"]}
                 mainClassName="font-extrabold"
                 staggerFrom="last"
                 initial={{ y: "100%" }}
@@ -49,17 +64,28 @@ const HeroSection = () => {
 
             {/* Deskripsi */}
             <p className="font-mono text-base sm:text-lg md:text-xl text-white max-w-2xl mb-10">
-              Web Developer with experience in Digital Concept Arts and Frontend Web Designs. I love fun Web UIs, collaboration, and making products. I value simple content structure, clean design patterns, and thoughtful interactions.
+            Software Engineer with experience in building scalable fullstack applications, from crafting intuitive user interfaces to developing robust backend systems. I'm passionate about UI/UX design, clean code, and creating impactful digital products through collaboration and thoughtful engineering.
             </p>
 
             {/* Tombol CTA */}
             <div className="flex flex-wrap gap-4">
+            <a href="#footer">
               <button className="px-6 sm:px-8 py-3 rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 text-white font-semibold shadow-lg hover:scale-105 transition text-base sm:text-lg md:text-xl">
                 Let's Talk!
               </button>
-              <button className="p-3 sm:p-4 rounded-full bg-[#23243a] text-white text-xl hover:scale-110 transition">
-                <FaMusic />
+            </a>
+
+
+              {/* Icon Musik */}
+              <button
+                onClick={handleMusicToggle}
+                className="p-3 sm:p-4 rounded-full bg-[#23243a] text-white text-xl hover:scale-110 transition"
+              >
+                {isPlaying ? <FaVolumeUp /> : <FaVolumeMute />}
               </button>
+
+              {/* Audio Element */}
+              <audio ref={audioRef} src="/music/blue-yungkai.mp3" loop />
             </div>
           </div>
         </AnimatedContent>
